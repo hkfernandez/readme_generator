@@ -19,7 +19,13 @@ inquirer.prompt(questions)
             fs.writeFile ('readme.md', `### ${response.title}` , (err) =>
             err ? console.error (err) : console.log ('Success')
             );
-            fs.appendFile ('readme.md', `\n## Description\n${response.description}`, (err) =>
+            fs.appendFile ('readme.md', 
+            `\n\n## Description\n{response.description}
+            \n\n## Installation Instructions\n${response.installation}
+            \n\n## Usage\n${response.usage}
+            \n\n## Contributors\n${response.contributors}
+            \n\n## Testing\n${response.Testing}`,
+             (err) =>
             err ? console.error (err) : console.log ('Success'))
       });     
 
