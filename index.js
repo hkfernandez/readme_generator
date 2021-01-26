@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require ('inquirer');
 const fs = require ('fs');
+const licenseInfo  = require ('./utils/licenseTypes.js');
 
 // questions passed into the inquirer
 const questions = [
@@ -16,7 +17,7 @@ const questions = [
 // inquirer loop - then write readme
 inquirer.prompt(questions)
       .then ((response) => {
-            fs.writeFile ('readme.md', `### ${response.title}` , (err) =>
+            fs.writeFile ('readme.md', `# ${response.title}` , (err) =>
             err ? console.error (err) : console.log ('Success')
             );
             fs.appendFile ('readme.md', 
