@@ -25,7 +25,11 @@ inquirer.prompt(questions)
             \n\n## Usage\n${response.usage}
             \n\n## Contributors\n${response.contributors}
             \n\n## Testing\n${response.testing}
-            \n\n ## License\n${response.license}`,
+            \n\n ## License\n${response.license}
+            \n\n ## Questions\nYou can find the repo at [hkferandez](https://github.com/hkfernandez).
+            \n\ You can always send me a question at hkfernandezdev.gmail.com.
+            \n\ Thanks for having a look!
+            `,
              (err) =>
             err ? console.error (err) : console.log ('Success'))
       });     

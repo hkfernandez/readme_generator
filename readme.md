@@ -1,8 +1,4 @@
-### test
-
-## Description
-{response.description}
-            
+### title to check for propper github links         
 
 ## Installation Instructions
 undefined
@@ -21,4 +17,13 @@ undefined
             
 
  ## License
-MIT
+GPL
+            
+
+ ## Questions
+You can find the repo at [hkferandez](https://github.com/hkfernandez).
+            
+ You can always send me a question at hkfernandezdev.gmail.com.
+            
+ Thanks for having a look!
+            
