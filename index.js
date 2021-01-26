@@ -2,20 +2,26 @@
 const inquirer = require ('inquirer');
 const fs = require ('fs');
 
-const questions = ['Project Title:', 'PRoject Description', 'Installation Instructions', 'Usage - how the app is used', "Contributors", "Testing Instructions"];
+const questions = [
+      {type: 'input', message: 'Project Title:', name: 'title'}, 
+      {type: 'input', message: 'PRoject Description', name: 'description'},
+      {type: 'input', message: 'Installation Instructions', name: 'installation'},
+      {type: 'input', message: 'Usage - how the app is used', name: 'usage'},
+      {type: 'input', message: "Contributors", name: 'contributors'},
+      {type: 'input', message: "Testing Instructions", name: 'testing'}
+];
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
-function test () {
-      inquirer.prompt({
-            type: 'input',
-            message: questions[i],
-            name: 'userInput',
-      })
-      .then (() => console.log("working"));
-            
-}
-test ();
+
+inquirer.prompt(questions)
+      .then ((response) => {
+            fs.writeFile ('readme.md', `### ${response.title}` , (err) =>
+            err ? console.error (err) : console.log ('Success')
+            );
+      });     
+
+
 // TODO: Create a function to initialize app
 // function init() {}
 
