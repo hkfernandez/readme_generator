@@ -2,18 +2,18 @@
 const inquirer = require ('inquirer');
 const fs = require ('fs');
 
+// questions passed into the inquirer
 const questions = [
       {type: 'input', message: 'Project Title:', name: 'title'}, 
-      {type: 'input', message: 'Project Description', name: 'description'},
-      {type: 'input', message: 'Installation Instructions', name: 'installation'},
-      {type: 'input', message: 'Usage - how the app is used', name: 'usage'},
-      {type: 'input', message: "Contributors", name: 'contributors'},
-      {type: 'input', message: "Testing Instructions", name: 'testing'}
+      // {type: 'input', message: 'Project Description', name: 'description'},
+      // {type: 'input', message: 'Installation Instructions', name: 'installation'},
+      // {type: 'input', message: 'Usage - how the app is used', name: 'usage'},
+      // {type: 'input', message: "Contributors", name: 'contributors'},
+      // {type: 'input', message: "Testing Instructions", name: 'testing'},
+      {type: 'list', message: "License Type", name: 'license', choices: ['MIT', 'Apache', 'GPL', 'BSD-2-Clause', 'BSD-3-Clause', 'BSD-4-Clause']}
 ];
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
+// inquirer loop - then write readme
 inquirer.prompt(questions)
       .then ((response) => {
             fs.writeFile ('readme.md', `### ${response.title}` , (err) =>
@@ -24,7 +24,8 @@ inquirer.prompt(questions)
             \n\n## Installation Instructions\n${response.installation}
             \n\n## Usage\n${response.usage}
             \n\n## Contributors\n${response.contributors}
-            \n\n## Testing\n${response.Testing}`,
+            \n\n## Testing\n${response.testing}
+            \n\n ## License\n${response.license}`,
              (err) =>
             err ? console.error (err) : console.log ('Success'))
       });     
@@ -35,26 +36,3 @@ inquirer.prompt(questions)
 
 // Function call to initialize app
 // init();
-// inquirer
-//   .prompt([
-//     {
-//       type: 'input',
-//       message: 'What is your user name?',
-//       name: 'username',
-//     },
-//     {
-//       type: 'password',
-//       message: 'What is your password?',
-//       name: 'password',
-//     },
-//     {
-//       type: 'password',
-//       message: 'Re-enter password to confirm:',
-//       name: 'confirm',
-//     },
-//   ])
-//   .then((response) =>
-//     response.confirm === response.password
-//       ? console.log('Success!')
-//       : console.log('You forgot your password already?!')
-//   );
