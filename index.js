@@ -4,7 +4,7 @@ const fs = require ('fs');
 
 const questions = [
       {type: 'input', message: 'Project Title:', name: 'title'}, 
-      {type: 'input', message: 'PRoject Description', name: 'description'},
+      {type: 'input', message: 'Project Description', name: 'description'},
       {type: 'input', message: 'Installation Instructions', name: 'installation'},
       {type: 'input', message: 'Usage - how the app is used', name: 'usage'},
       {type: 'input', message: "Contributors", name: 'contributors'},
@@ -19,6 +19,8 @@ inquirer.prompt(questions)
             fs.writeFile ('readme.md', `### ${response.title}` , (err) =>
             err ? console.error (err) : console.log ('Success')
             );
+            fs.appendFile ('readme.md', `\n## Description\n${response.description}`, (err) =>
+            err ? console.error (err) : console.log ('Success'))
       });     
 
 
