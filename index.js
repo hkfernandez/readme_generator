@@ -6,22 +6,23 @@ const licenseInfo  = require ('./utils/licenseTypes.js');
 // questions passed into the inquirer
 const questions = [
       {type: 'input', message: 'Project Title:', name: 'title'}, 
-      // {type: 'input', message: 'Project Description', name: 'description'},
-      // {type: 'input', message: 'Installation Instructions', name: 'installation'},
-      // {type: 'input', message: 'Usage - how the app is used', name: 'usage'},
-      // {type: 'input', message: "Contributors", name: 'contributors'},
-      // {type: 'input', message: "Testing Instructions", name: 'testing'},
-      {type: 'list', message: "License Type", name: 'license', choices: ['MIT', 'Apache', 'GPL', 'BSD-2-Clause', 'BSD-3-Clause', 'BSD-4-Clause']}
+      {type: 'input', message: 'Project Description', name: 'description'},
+      {type: 'input', message: 'Installation Instructions', name: 'installation'},
+      {type: 'input', message: 'Usage - how the app is used', name: 'usage'},
+      {type: 'input', message: "Contributors", name: 'contributors'},
+      {type: 'input', message: "Testing Instructions", name: 'testing'},
+      {type: 'list', message: "License Type", name: 'license', choices: ['MIT', 'Apache', 'GPL', 'BSD_2_Clause', 'BSD_3_Clause', 'BSD_4_Clause']}
 ];
 
 // inquirer loop - then write readme
 inquirer.prompt(questions)
       .then ((response) => {
-            fs.writeFile ('readme.md', `# ${response.title}` , (err) =>
+            fs.writeFile ('readme.md', licenseInfo.licenseInfo.licenseBadges[response.license] , (err) =>
             err ? console.error (err) : console.log ('Success')
             );
             fs.appendFile ('readme.md', 
-            `\n\n## Description\n{response.description}
+            `\n# ${response.title}
+            \n\n## Description\n{response.description}
             \n\n## Installation Instructions\n${response.installation}
             \n\n## Usage\n${response.usage}
             \n\n## Contributors\n${response.contributors}

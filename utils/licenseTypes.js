@@ -3,9 +3,9 @@ let licenseInfo = {
             MIT: `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`, 
             Apache: `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`, 
             GPL: `[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)`, 
-            BSD2Clause: `[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`, 
-            BSD3Clause: `[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`, 
-            BSD4Clause: '' },
+            BSD_2_Clause: `[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`, 
+            BSD_3_Clause: `[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`, 
+            BSD_4_Clause: '' },
       licenseText: {
             MIT: `MIT License
 
@@ -903,7 +903,7 @@ let licenseInfo = {
             the library.  If this is what you want to do, use the GNU Lesser General
             Public License instead of this License.  But first, please read
             <http://www.gnu.org/philosophy/why-not-lgpl.html>.`, 
-            BSD2Clause: `Copyright (c) <year>, <copyright holder>
+            BSD_2_Clause: `Copyright (c) <year>, <copyright holder>
             All rights reserved.
             
             Redistribution and use in source and binary forms, with or without
@@ -929,7 +929,7 @@ let licenseInfo = {
             The views and conclusions contained in the software and documentation are those
             of the authors and should not be interpreted as representing official policies,
             either expressed or implied, of the FreeBSD Project.`, 
-            BSD3Clause: `Copyright (c) <year>, <copyright holder>
+            BSD_3_Clause: `Copyright (c) <year>, <copyright holder>
             All rights reserved.
             
             Redistribution and use in source and binary forms, with or without
@@ -956,7 +956,7 @@ let licenseInfo = {
             CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
             OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
             OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`, 
-            BSD4Clause: `Copyright (c) <year>, <copyright holder>
+            BSD_4_Clause: `Copyright (c) <year>, <copyright holder>
             All rights reserved.
             
             Redistribution and use in source and binary forms, with or without
@@ -985,4 +985,4 @@ let licenseInfo = {
             USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.` }
 }
 
-global.exports
+module.exports.licenseInfo = licenseInfo;
