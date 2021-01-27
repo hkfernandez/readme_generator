@@ -8,7 +8,6 @@ const licenseInfo  = require ('./utils/licenseTypes.js');
 // questions passed into the inquirer
 const questions = [
       {type: 'input', message: 'Project Title', name: 'title'}, 
-      {type: 'input', message: 'Full Name', name: 'fullName'}, 
       {type: 'input', message: 'Project Description', name: 'description'},
       {type: 'input', message: 'Installation Instructions', name: 'installation'},
       {type: 'input', message: 'Usage - how the app is used', name: 'usage'},
@@ -23,13 +22,10 @@ function init() {
 // inquirer loop 
       inquirer.prompt(questions)
       .then ((response) => {
-// write readme file starting with license badge
-            fs.writeFile ('readme.md', licenseInfo.licenseInfo.licenseBadges[response.license] , (err) =>
-            err ? console.error (err) : ('Success')
-            );
-// append info to readme file
+// creates readme file in root folder and appends info
             fs.appendFile ('readme.md', 
-            `\n# ${response.title}
+            `${licenseInfo.licenseInfo.licenseBadges[response.license]}
+            \n# ${response.title}
             \n\n## Description\n${response.description}
             \n\n## Installation Instructions\n${response.installation}
             \n\n## Usage\n${response.usage}
@@ -42,7 +38,7 @@ function init() {
             `,
             (err) => err ? console.error (err) : console.log ('Success')
             );
-
+// creates license.md in root folder
             fs.writeFile ('license.md', licenseInfo.licenseInfo.licenseText[response.license] , (err) =>
             err ? console.error (err) : console.log ('Success')
             );
