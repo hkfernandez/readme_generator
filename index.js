@@ -23,7 +23,7 @@ function init() {
       inquirer.prompt(questions)
       .then ((response) => {
 // creates readme file in root folder and appends info
-            fs.appendFile ('readme.md', 
+            fs.appendFile ('./output/readme.md', 
             `${licenseInfo.licenseInfo.licenseBadges[response.license]}
             \n# ${response.title}
             \n\n## Description\n${response.description}
@@ -39,7 +39,7 @@ function init() {
             (err) => err ? console.error (err) : console.log ('Success')
             );
 // creates license.md in root folder
-            fs.writeFile ('license.md', licenseInfo.licenseInfo.licenseText[response.license] , (err) =>
+            fs.writeFile ('./output/license.md', licenseInfo.licenseInfo.licenseText[response.license] , (err) =>
             err ? console.error (err) : console.log ('Success')
             );
       });     
