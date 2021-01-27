@@ -1,3 +1,5 @@
+const currentYear = new Date().getFullYear()
+
 let licenseInfo = {
       licenseBadges: {
             MIT: `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`, 
@@ -5,11 +7,11 @@ let licenseInfo = {
             GPL: `[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)`, 
             BSD_2_Clause: `[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`, 
             BSD_3_Clause: `[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`, 
-            BSD_4_Clause: '' },
+            BSD_4_Clause: 'No Badge Available' },
       licenseText: {
             MIT: `MIT License
 
-            Copyright (c) [year] [fullname]
+            Copyright (c) ${currentYear} {fullName}
             
             Permission is hereby granted, free of charge, to any person obtaining a copy
             of this software and associated documentation files (the "Software"), to deal
@@ -216,7 +218,7 @@ let licenseInfo = {
             same "printed page" as the copyright notice for easier
             identification within third-party archives.
 
-            Copyright {yyyy} {name of copyright owner}
+            Copyright ${currentYear} {fullName}
 
             Licensed under the Apache License, Version 2.0 (the "License");
             you may not use this file except in compliance with the License.
@@ -229,8 +231,8 @@ let licenseInfo = {
             WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
             See the License for the specific language governing permissions and
             limitations under the License.`, 
-                        GPL: `GNU GENERAL PUBLIC LICENSE
-                        Version 3, 29 June 2007
+            GPL: `GNU GENERAL PUBLIC LICENSE
+            Version 3, 29 June 2007
 
             Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
             Everyone is permitted to copy and distribute verbatim copies
@@ -863,7 +865,7 @@ let licenseInfo = {
             the "copyright" line and a pointer to where the full notice is found.
 
             {one line to give the program's name and a brief idea of what it does.}
-            Copyright (C) {year}  {name of author}
+            Copyright (C) ${currentYear}  {fullName}
 
             This program is free software: you can redistribute it and/or modify
             it under the terms of the GNU General Public License as published by
@@ -903,7 +905,7 @@ let licenseInfo = {
             the library.  If this is what you want to do, use the GNU Lesser General
             Public License instead of this License.  But first, please read
             <http://www.gnu.org/philosophy/why-not-lgpl.html>.`, 
-            BSD_2_Clause: `Copyright (c) <year>, <copyright holder>
+            BSD_2_Clause: `Copyright (c) ${currentYear}, {fullName}
             All rights reserved.
             
             Redistribution and use in source and binary forms, with or without
@@ -929,7 +931,7 @@ let licenseInfo = {
             The views and conclusions contained in the software and documentation are those
             of the authors and should not be interpreted as representing official policies,
             either expressed or implied, of the FreeBSD Project.`, 
-            BSD_3_Clause: `Copyright (c) <year>, <copyright holder>
+            BSD_3_Clause: `Copyright (c) ${currentYear}, {fullName}
             All rights reserved.
             
             Redistribution and use in source and binary forms, with or without
@@ -956,7 +958,7 @@ let licenseInfo = {
             CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
             OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
             OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`, 
-            BSD_4_Clause: `Copyright (c) <year>, <copyright holder>
+            BSD_4_Clause: `Copyright (c) ${currentYear}, {fullName}
             All rights reserved.
             
             Redistribution and use in source and binary forms, with or without

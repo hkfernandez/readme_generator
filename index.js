@@ -1,44 +1,54 @@
-// TODO: Include packages needed for this application
+// inquirer package - provides command line prompts
 const inquirer = require ('inquirer');
+// fs module - allows creation of external files
 const fs = require ('fs');
+// custom package that holds copy and badges for licenses
 const licenseInfo  = require ('./utils/licenseTypes.js');
 
 // questions passed into the inquirer
 const questions = [
-      {type: 'input', message: 'Project Title:', name: 'title'}, 
+      {type: 'input', message: 'Project Title', name: 'title'}, 
+      {type: 'input', message: 'Full Name', name: 'fullName'}, 
       {type: 'input', message: 'Project Description', name: 'description'},
       {type: 'input', message: 'Installation Instructions', name: 'installation'},
       {type: 'input', message: 'Usage - how the app is used', name: 'usage'},
       {type: 'input', message: "Contributors", name: 'contributors'},
       {type: 'input', message: "Testing Instructions", name: 'testing'},
+      {type: 'input', message: "GitHub Username", name: 'github'},
+      {type: 'input', message: "Email Address", name: 'email'},
       {type: 'list', message: "License Type", name: 'license', choices: ['MIT', 'Apache', 'GPL', 'BSD_2_Clause', 'BSD_3_Clause', 'BSD_4_Clause']}
 ];
 
-// inquirer loop - then write readme
-inquirer.prompt(questions)
+function init() {
+// inquirer loop 
+      inquirer.prompt(questions)
       .then ((response) => {
+// write readme file starting with license badge
             fs.writeFile ('readme.md', licenseInfo.licenseInfo.licenseBadges[response.license] , (err) =>
-            err ? console.error (err) : console.log ('Success')
+            err ? console.error (err) : ('Success')
             );
+// append info to readme file
             fs.appendFile ('readme.md', 
             `\n# ${response.title}
-            \n\n## Description\n{response.description}
+            \n\n## Description\n${response.description}
             \n\n## Installation Instructions\n${response.installation}
             \n\n## Usage\n${response.usage}
             \n\n## Contributors\n${response.contributors}
             \n\n## Testing\n${response.testing}
             \n\n ## License\n${response.license}
-            \n\n ## Questions\nYou can find the repo at [hkferandez](https://github.com/hkfernandez).
-            \n\ You can always send me a question at hkfernandezdev.gmail.com.
+            \n\n ## Questions\nYou can find the repo at [${response.github}](https://github.com/${response.github}).
+            \n\ You can always send me a question at ${response.email}.
             \n\ Thanks for having a look!
             `,
-             (err) =>
-            err ? console.error (err) : console.log ('Success'))
+            (err) => err ? console.error (err) : console.log ('Success')
+            );
+
+            fs.writeFile ('license.md', licenseInfo.licenseInfo.licenseText[response.license] , (err) =>
+            err ? console.error (err) : console.log ('Success')
+            );
       });     
+}
+
+init();
 
 
-// TODO: Create a function to initialize app
-// function init() {}
-
-// Function call to initialize app
-// init();
